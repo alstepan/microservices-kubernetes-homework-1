@@ -1,0 +1,67 @@
+{
+	"info": {
+		"_postman_id": "f8b012c9-5278-4d19-9bc6-e23ec6217996",
+		"name": "Homework-tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Check health with sudent name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/otusapp/alstepan/health",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"otusapp",
+						"alstepan",
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check liveness with student name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/otusapp/alstepan/liveness",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"otusapp",
+						"alstepan",
+						"liveness"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check not found for invalid URL",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/abracadabra",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"abracadabra"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
