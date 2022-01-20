@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: hello-deployment
+spec:
+    replicas: 3
+    selector:
+       matchLabels:
+          app: hello-scala-app
+    template:
+       metadata:
+          labels:
+             app: hello-scala-app
+       spec:
+          containers:
+          - name: hello-scala
+            image: alstepan/hello-scala:1.0
+            imagePullPolicy: IfNotPresent
+            ports:
+              - name: web 
+                containerPort: 8000
+            readinessProbe:
+              httpGet:
+                 path: /health
+                 port: 8000
+              initialDelaySeconds: 10
+              periodSeconds: 5
+              timeoutSeconds: 2
+              failureThreshold: 3
+            livenessProbe:
+              httpGet:
+                 path: /liveness
+                 port: 8000
+              initialDelaySeconds: 10
+              periodSeconds: 5
+              timeoutSeconds: 10
+              failureThreshold: 3
